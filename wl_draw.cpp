@@ -1539,6 +1539,7 @@ void    ThreeDRefresh (void)
 
     WallRefresh ();
 
+    if(automap_state) return;
     
 
 //
