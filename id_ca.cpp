@@ -81,13 +81,13 @@ int     numEpisodesMissing = 0;
 char extension[5]; // Need a string, not constant to change cache files
 char graphext[5];
 char audioext[5];
-static const char gheadname[] = "vgahead.";
-static const char gfilename[] = "vgagraph.";
-static const char gdictname[] = "vgadict.";
-static const char mheadname[] = "maphead.";
+static const char gheadname[] = GAME_FOLDER"vgahead.";
+static const char gfilename[] = GAME_FOLDER"vgagraph.";
+static const char gdictname[] = GAME_FOLDER"vgadict.";
+static const char mheadname[] = GAME_FOLDER"maphead.";
 
-static const char aheadname[] = "audiohed.";
-static const char afilename[] = "audiot.";
+static const char aheadname[] = GAME_FOLDER"audiohed.";
+static const char afilename[] = GAME_FOLDER"audiot.";
 
 void CA_CannotOpen(const char *string);
 
@@ -569,7 +569,7 @@ void CAL_SetupMapFile (void)
 // open the data file
 //
 #ifdef CARMACIZED
-    strcpy(fname, "gamemaps.");
+    strcpy(fname, GAME_FOLDER"gamemaps.");
     strcat(fname, extension);
 
     maphandle = open(fname, O_RDONLY | O_BINARY);

@@ -38,4 +38,6 @@
                               // effect to let the original demos work as in the original Wolf3D v1.4
                               // (actually better, as the second demo rarely worked)
 
+#define GAME_FOLDER "game/"
+
 #endif

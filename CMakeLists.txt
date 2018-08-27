@@ -4,6 +4,14 @@ set(BINARY wolf3d)
 
 project(Wolf3d)
 
+message("
+  ===============================
+    Wolf3d PROPHESSOR's version
+
+    If you see \"NO WOLFENSTEIN 3-D DATA FILES to be found!\" message check the version.h file
+  ===============================
+")
+
 find_package(SDL REQUIRED)
 if(NOT SDL_FOUND)
 	message(SEND_ERROR "Failed to find SDL")

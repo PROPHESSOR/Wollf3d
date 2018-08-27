@@ -14,3 +14,5 @@ Backup
 *.d
 *.wl6
 build
+!build/build.sh
+!build/game
