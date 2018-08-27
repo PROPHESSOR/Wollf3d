@@ -20,6 +20,8 @@ int automap_state;
 void ToggleAutomap (void) {
     automap_state = !automap_state;
     UpdateAutomap();
+    if(!automap_state)
+        VW_UpdateScreen();
     IN_Ack();
 }
 
@@ -35,33 +37,34 @@ void UpdateAutomap(void) {
         NewViewSize(16);
         DrawPlayBorder();
 
-        // right side (raw)
-
-        // for(x=0;x<MAPSIZE;x++)
-        //     for(y=0;y<MAPSIZE;y++)
-        //         VWB_Bar(x*z+offx, y*z+offy,z,z,(unsigned)(uintptr_t)actorat[x][y]);
-
-        // left side (filtered)
-
         uintptr_t tile;
-        int color;
-        offx -= 128;
+        int color = 0;
+        offx -= 64; // 128;
 
-        for(x=0;x<MAPSIZE;x++)
-        {
-            for(y=0;y<MAPSIZE;y++)
-            {
+        for(y = 0; y < MAPSIZE; y++) {
+            for(x = 0; x < 64; x++) {
+                VWB_Bar(x * z + offx + 64, y * z + offy, z, z, 154);
+                VWB_Bar(x * z + offx - 64, y * z + offy, z, z, 154);
+            }
+        }
+
+        for(x = 0; x < MAPSIZE; x++) {
+            for(y = 0; y < MAPSIZE; y++) {
                 tile = (uintptr_t)actorat[x][y];
                 if (ISPOINTER(tile) && ((objtype *)tile)->flags&FL_SHOOTABLE) color = 72;  // enemy
-                else if (!tile || ISPOINTER(tile))
-                {
+                else
+                if (!tile || ISPOINTER(tile)) {
                     if (spotvis[x][y]) color = 111;  // visable
-                    else color = 0;  // nothing
+                    else color = 0;                  // nothing
                 }
-                else if (MAPSPOT(x,y,1) == PUSHABLETILE) color = 171;  // pushwall
-                else if (tile == 64) color = 158; // solid obj
-                else if (tile < 128) color = 154;  // walls
-                else if (tile < 256) color = 146;  // doors
+                else
+                if (MAPSPOT(x,y,1) == PUSHABLETILE) color = 171;  // pushwall
+                else
+                if (tile == 64) color = 158;  // solid obj
+                else
+                if (tile < 128) color = 154;  // walls
+                else
+                if (tile < 256) color = 146;  // doors
 
                 VWB_Bar(x*z+offx, y*z+offy,z,z,color);
             }

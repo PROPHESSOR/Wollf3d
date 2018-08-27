@@ -743,8 +743,12 @@ void CheckKeys (void)
 #ifdef PROPHESSOR_FEATURES
     if(Keyboard[sc_Tab]) {
         ToggleAutomap();
+    } else
+    if(Keyboard[sc_BackQuote]) {
+        ToggleConsole();
     }
     UpdateAutomap();
+    // UpdateConsole();
 #endif
 }
 

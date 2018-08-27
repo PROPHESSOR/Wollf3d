@@ -36,6 +36,7 @@ typedef int     ScanCode;
 #define sc_End          SDLK_END
 #define sc_PgUp         SDLK_PAGEUP
 #define sc_PgDn         SDLK_PAGEDOWN
+#define sc_BackQuote    SDLK_BACKQUOTE
 #define sc_F1           SDLK_F1
 #define sc_F2           SDLK_F2
 #define sc_F3           SDLK_F3
