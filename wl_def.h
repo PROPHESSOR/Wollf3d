@@ -35,7 +35,7 @@
 #define YESBUTTONNAME "Y"
 #define NOBUTTONNAME  "N"
 
-#include "foreign.h"
+// #include "foreign.h"
 
 #ifndef SPEAR
     #include "audiowl6.h"

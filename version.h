@@ -40,4 +40,12 @@
 
 #define GAME_FOLDER "game/"
 
+/**
+ * Language
+ */
+
+#include "langs/english.h"
+// #include "langs/spanish.h"
+// #include "langs/japan.h"
+
 #endif
