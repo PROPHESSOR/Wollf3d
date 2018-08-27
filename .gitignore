@@ -1,0 +1,16 @@
+*/DerivedData/*
+.DS_Store
+xcuserdata
+
+#visual studio files
+*.sdf
+*.suo
+*.vcxproj.user
+Debug
+Release
+Backup
+
+*.o
+*.d
+*.wl6
+build
