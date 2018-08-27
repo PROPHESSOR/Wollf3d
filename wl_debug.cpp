@@ -51,8 +51,9 @@ void SimpleScaleShape (int xcenter, int shapenum, unsigned height);
 int     maporgx;
 int     maporgy;
 
-
+#if 0
 void ViewMap (void);
+#endif
 
 //===========================================================================
 
@@ -164,6 +165,7 @@ void BasicOverhead (void)
     offx = 320/2;
     offy = (160-MAPSIZE*z)/2;
 
+#define MAPBORDER
 #ifdef MAPBORDER
     int temp = viewsize;
     NewViewSize(16);
@@ -694,6 +696,14 @@ again:
         VW_UpdateScreen();
         // DEBUG: put stuff here
         IN_Ack ();
+        return 1;
+    }
+    // else if (Keyboard[sc_U]) {
+    //     ToggleAutomap();
+    //     return 1;
+    // }
+    else if (Keyboard[sc_J]) {
+        DoJukebox();
         return 1;
     }
 

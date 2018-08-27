@@ -3,7 +3,6 @@
 #include "wl_def.h"
 #pragma hdrstop
 
-
 /*
 =============================================================================
 
@@ -89,6 +88,10 @@ int StopMusic (void);
 void StartMusic (void);
 void ContinueMusic (int offs);
 void PlayLoop (void);
+
+#ifdef PROPHESSOR_FEATURES
+void BasicOverhead();
+#endif
 
 /*
 =============================================================================
@@ -206,7 +209,7 @@ int songs[] = {
     XFUNKIE_MUS,
     XDEATH_MUS,
     XGETYOU_MUS,                // DON'T KNOW
-    ULTIMATE_MUS,               // Trans Gr”sse
+    ULTIMATE_MUS,               // Trans Grï¿½sse
 
     DUNGEON_MUS,
     GOINGAFT_MUS,
@@ -718,10 +721,10 @@ void CheckKeys (void)
     }
 
 //
-// TAB-? debug keys
+// ALT-? debug keys
 //
 #ifdef DEBUGKEYS
-    if (Keyboard[sc_Tab] && DebugOk)
+    if (Keyboard[sc_Alt] && DebugOk)
     {
         CA_CacheGrChunk (STARTFONT);
         fontnumber = 0;
@@ -735,6 +738,13 @@ void CheckKeys (void)
         lasttimecount = GetTimeCount();
         return;
     }
+#endif
+
+#ifdef PROPHESSOR_FEATURES
+    if(Keyboard[sc_Tab]) {
+        ToggleAutomap();
+    }
+    UpdateAutomap();
 #endif
 }
 

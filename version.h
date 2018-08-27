@@ -39,6 +39,7 @@
                               // (actually better, as the second demo rarely worked)
 
 #define GAME_FOLDER "game/"
+#define PROPHESSOR_FEATURES
 
 /**
  * Language

@@ -57,6 +57,7 @@ set(SOURCE
             wl_inter.cpp
             wl_main.cpp
             wl_menu.cpp
+            wl_automap.cpp
             wl_play.cpp
             wl_state.cpp
             wl_text.cpp

@@ -80,7 +80,7 @@ char    configname[13] = "config.";
 //
 // Command line parameter variables
 //
-boolean param_debugmode = false;
+boolean param_debugmode = true;
 boolean param_nowait = false;
 int     param_difficulty = 1;           // default is "normal"
 int     param_tedlevel = -1;            // default is not to start a level

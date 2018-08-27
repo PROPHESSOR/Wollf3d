@@ -1,5 +1,4 @@
-#ifndef WL_DEF_H
-#define WL_DEF_H
+#pragma once
 
 // Defines which version shall be built and configures supported extra features
 #include "version.h"
@@ -953,8 +952,19 @@ extern  boolean         spearflag;
 #define PlaySoundLocTile(s,tx,ty)       PlaySoundLocGlobal(s,(((int32_t)(tx) << TILESHIFT) + (1L << (TILESHIFT - 1))),(((int32_t)ty << TILESHIFT) + (1L << (TILESHIFT - 1))))
 #define PlaySoundLocActor(s,ob)         PlaySoundLocGlobal(s,(ob)->x,(ob)->y)
 void    PlaySoundLocGlobal(word s,fixed gx,fixed gy);
-void UpdateSoundLoc(void);
+void    UpdateSoundLoc(void);
 
+/*
+=============================================================================
+
+                            WL_AUTOMAP DEFINITIONS
+
+=============================================================================
+*/
+
+void    ToggleAutomap(void);
+void    UpdateAutomap(void);
+extern int automap_state;
 
 /*
 =============================================================================
@@ -1064,6 +1074,7 @@ void PreloadGraphics(void);
 =============================================================================
 */
 
+void DoJukebox(void);
 int DebugKeys (void);
 
 /*
@@ -1390,7 +1401,3 @@ static inline longword READLONGWORD(byte *&ptr)
 #include "crt.h"
 //Fab's CRT Hack
 #define SDL_Flip(x) CRT_DAC()
-
-
-
-#endif
