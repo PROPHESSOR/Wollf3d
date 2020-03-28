@@ -12,7 +12,7 @@ message("
   ===============================
 ")
 
-find_package(SDL REQUIRED)
+find_package(SDL)
 if(NOT SDL_FOUND)
 	message(SEND_ERROR "Failed to find SDL")
 	message(SEND_ERROR "sudo apt install libsdl-dev")
@@ -21,7 +21,7 @@ else()
 	include_directories(${SDL_INCLUDE_DIR})
 endif()
 
-find_package(SDL_mixer REQUIRED)
+find_package(SDL_mixer)
 if(NOT SDL_MIXER_FOUND)
 	message(SEND_ERROR "Failed to find SDL_mixer")
 	message(SEND_ERROR "sudo apt install libsdl-mixer1.2-dev")
